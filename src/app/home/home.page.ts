@@ -177,23 +177,23 @@ export class HomePage implements AfterViewInit, OnDestroy, OnInit {
     this.smsToScanResult = {};
   }
 
-  async startScan() {
-    this._resetFailedToReadQRCode();
-    // Not working on iOS standalone mode!
-    const stream = await navigator.mediaDevices.getUserMedia({
-      video: { facingMode: 'environment' }
-    });
+  // async startScan() { CAMERA
+  //   this._resetFailedToReadQRCode();
+  //   // Not working on iOS standalone mode!
+  //   const stream = await navigator.mediaDevices.getUserMedia({
+  //     video: { facingMode: 'environment' }
+  //   });
 
-    this._videoElement.srcObject = stream;
-    // Required for Safari
-    this._videoElement.setAttribute('playsinline', true);
+  //   this._videoElement.srcObject = stream;
+  //   // Required for Safari
+  //   this._videoElement.setAttribute('playsinline', true);
 
-    this._loading = await this._loadingCtrl.create({});
-    await this._loading.present();
+  //   this._loading = await this._loadingCtrl.create({});
+  //   await this._loading.present();
 
-    this._videoElement?.play();
-    requestAnimationFrame(this._scan.bind(this));
-  }
+  //   this._videoElement?.play();
+  //   requestAnimationFrame(this._scan.bind(this));
+  // }
 
   private _causeVibration() {
     let newVariable: any;
